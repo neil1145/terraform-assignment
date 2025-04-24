@@ -34,6 +34,12 @@ variable "private_subnet_cidr" {
   default     = "10.0.2.0/24"
 }
 
+variable "private_subnet_cidr_2" {
+  description = "CIDR block for the second private subnet"
+  type        = string
+  default     = "10.0.3.0/24"
+}
+
 variable "ubuntu_instance_type" {
   description = "EC2 instance type for Ubuntu server"
   type        = string
