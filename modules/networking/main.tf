@@ -42,6 +42,18 @@ resource "aws_subnet" "private" {
   }
 }
 
+# Second Private Subnet
+resource "aws_subnet" "private_2" {
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = var.private_subnet_cidr_2
+  map_public_ip_on_launch = false
+  availability_zone       = "${var.aws_region}c"  # Use a different AZ
+
+  tags = {
+    Name = "${var.project}-${var.environment}-private-subnet-2"
+  }
+}
+
 # Elastic IP for NAT Gateway
 resource "aws_eip" "nat" {
   domain = "vpc"
@@ -100,6 +112,12 @@ resource "aws_route_table_association" "public" {
 # Private Route Table Association
 resource "aws_route_table_association" "private" {
   subnet_id      = aws_subnet.private.id
+  route_table_id = aws_route_table.private.id
+}
+
+# Associate the second private subnet with the private route table
+resource "aws_route_table_association" "private_2" {
+  subnet_id      = aws_subnet.private_2.id
   route_table_id = aws_route_table.private.id
 }
 
