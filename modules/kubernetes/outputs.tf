@@ -20,5 +20,5 @@ output "cluster_certificate_authority_data" {
 
 output "kubeconfig_command" {
   description = "Command to configure kubectl"
-  value       = "aws eks update-kubeconfig --name ${aws_eks_cluster.main.name} --region ${aws_eks_cluster.main.arn_partition}"
+  value       = "aws eks update-kubeconfig --name ${aws_eks_cluster.main.name} --region ${data.aws_region.current.name}"
 }

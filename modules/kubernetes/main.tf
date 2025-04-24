@@ -1,3 +1,5 @@
+data "aws_region" "current" {}
+
 # IAM role for EKS cluster
 resource "aws_iam_role" "eks_cluster" {
   name = "${var.project}-${var.environment}-eks-cluster-role"
