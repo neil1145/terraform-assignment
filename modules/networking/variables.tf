@@ -13,6 +13,12 @@ variable "private_subnet_cidr" {
   type        = string
 }
 
+variable "private_subnet_cidr_2" {
+  description = "CIDR block for the second private subnet"
+  type        = string
+  default     = "10.0.3.0/24"
+}
+
 variable "environment" {
   description = "Environment name (e.g., dev, staging, prod)"
   type        = string

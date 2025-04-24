@@ -64,7 +64,7 @@ module "database" {
   db_username     = var.db_username
   db_password     = var.db_password
   instance_class  = var.db_instance_class
-  subnet_ids      = [module.networking.private_subnet_id]
+  subnet_ids      = [module.networking.private_subnet_id, module.networking.private_subnet_id_2]
   vpc_id          = module.networking.vpc_id
   environment     = var.environment
   project         = var.project
