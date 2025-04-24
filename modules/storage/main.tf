@@ -46,6 +46,10 @@ resource "aws_s3_bucket_lifecycle_configuration" "main" {
   rule {
     id     = "log-rotation"
     status = "Enabled"
+    
+    filter {
+      prefix = ""  # Apply to all objects
+    }
 
     transition {
       days          = 30
