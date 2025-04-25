@@ -129,7 +129,8 @@
                 "rds:ModifyDBSubnetGroup",
                 "rds:DescribeDBSubnetGroups",
                 "rds:AddTagsToResource",
-                "rds:RemoveTagsFromResource"
+                "rds:RemoveTagsFromResource",
+                "rds:ListTagsForResource"
             ],
             "Resource": "*"
         },
