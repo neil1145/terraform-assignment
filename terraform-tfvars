@@ -1,0 +1,29 @@
+# General settings
+aws_region  = "us-east-1"
+environment = "dev"
+project     = "terraform-demo"
+
+# Networking
+vpc_cidr            = "10.0.0.0/16"
+public_subnet_cidr  = "10.0.1.0/24"
+private_subnet_cidr = "10.0.2.0/24"
+
+# Compute
+ubuntu_instance_type = "t3.micro"
+ubuntu_ami           = "ami-0c7217cdde317cfec"  # Ubuntu 22.04 LTS in us-east-1
+
+# Kubernetes
+eks_cluster_name              = "demo-cluster"
+eks_node_group_instance_type  = "t3.medium"
+eks_node_group_desired_size   = 2
+eks_node_group_min_size       = 1
+eks_node_group_max_size       = 3
+
+# Storage
+s3_bucket_name = "my-unique-terraform-demo-bucket-12345"
+
+# Database
+db_name          = "mydb"
+db_username      = "admin"
+db_password      = "YourStrongPasswordHere123!"  # Don't commit this to version control
+db_instance_class = "db.t3.micro"
