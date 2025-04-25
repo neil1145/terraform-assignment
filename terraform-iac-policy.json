@@ -95,7 +95,8 @@
                 "eks:ListNodegroups",
                 "eks:UpdateNodegroupConfig",
                 "eks:UpdateNodegroupVersion",
-                "eks:TagResource"
+                "eks:TagResource",
+                "eks:GetCluster"
             ],
             "Resource": "*"
         },
