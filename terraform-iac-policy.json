@@ -1,172 +1,199 @@
 {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "TerraformStateManagement",
-            "Effect": "Allow",
-            "Action": [
-                "s3:ListBucket",
-                "s3:GetObject",
-                "s3:PutObject",
-                "s3:DeleteObject",
-                "dynamodb:GetItem",
-                "dynamodb:PutItem",
-                "dynamodb:DeleteItem",
-                "dynamodb:CreateTable",
-                "dynamodb:DescribeTable",
-                "dynamodb:DeleteTable"
-            ],
-            "Resource": [
-                "arn:aws:s3:::terraform-terraform-state-jitesh",
-                "arn:aws:s3:::terraform-state-jitesh/*",
-                "arn:aws:dynamodb:*:*:table/terraform-state-lock"
-            ]
-        },
-        {
-            "Sid": "VPCOperations",
-            "Effect": "Allow",
-            "Action": [
-                "ec2:CreateVpc",
-                "ec2:DeleteVpc",
-                "ec2:ModifyVpcAttribute",
-                "ec2:CreateSubnet",
-                "ec2:DeleteSubnet",
-                "ec2:ModifySubnetAttribute",
-                "ec2:CreateInternetGateway",
-                "ec2:DeleteInternetGateway",
-                "ec2:AttachInternetGateway",
-                "ec2:DetachInternetGateway",
-                "ec2:CreateRouteTable",
-                "ec2:DeleteRouteTable",
-                "ec2:CreateRoute",
-                "ec2:DeleteRoute",
-                "ec2:AssociateRouteTable",
-                "ec2:DisassociateRouteTable",
-                "ec2:CreateNatGateway",
-                "ec2:DeleteNatGateway",
-                "ec2:AllocateAddress",
-                "ec2:ReleaseAddress",
-                "ec2:AssociateAddress",
-                "ec2:DisassociateAddress",
-                "ec2:CreateSecurityGroup",
-                "ec2:DeleteSecurityGroup",
-                "ec2:AuthorizeSecurityGroupIngress",
-                "ec2:AuthorizeSecurityGroupEgress",
-                "ec2:RevokeSecurityGroupIngress",
-                "ec2:RevokeSecurityGroupEgress",
-                "ec2:CreateTags",
-                "ec2:DeleteTags"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "EC2Operations",
-            "Effect": "Allow",
-            "Action": [
-                "ec2:RunInstances",
-                "ec2:TerminateInstances",
-                "ec2:StartInstances",
-                "ec2:StopInstances",
-                "ec2:DescribeInstances",
-                "ec2:DescribeInstanceStatus",
-                "ec2:DescribeInstanceTypes",
-                "ec2:DescribeImages",
-                "ec2:DescribeKeyPairs",
-                "ec2:ImportKeyPair",
-                "ec2:DeleteKeyPair",
-                "ec2:CreateTags",
-                "ec2:DeleteTags"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "EKSOperations",
-            "Effect": "Allow",
-            "Action": [
-                "eks:CreateCluster",
-                "eks:DeleteCluster",
-                "eks:DescribeCluster",
-                "eks:ListClusters",
-                "eks:UpdateClusterConfig",
-                "eks:UpdateClusterVersion",
-                "eks:CreateNodegroup",
-                "eks:DeleteNodegroup",
-                "eks:DescribeNodegroup",
-                "eks:ListNodegroups",
-                "eks:UpdateNodegroupConfig",
-                "eks:UpdateNodegroupVersion",
-                "eks:TagResource"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "S3Operations",
-            "Effect": "Allow",
-            "Action": [
-                "s3:CreateBucket",
-                "s3:DeleteBucket",
-                "s3:PutBucketTagging",
-                "s3:PutBucketVersioning",
-                "s3:PutEncryptionConfiguration",
-                "s3:PutBucketPublicAccessBlock",
-                "s3:PutLifecycleConfiguration",
-                "s3:GetBucketPolicy",
-                "s3:PutBucketPolicy",
-                "s3:DeleteBucketPolicy"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "RDSOperations",
-            "Effect": "Allow",
-            "Action": [
-                "rds:CreateDBInstance",
-                "rds:DeleteDBInstance",
-                "rds:ModifyDBInstance",
-                "rds:DescribeDBInstances",
-                "rds:CreateDBSubnetGroup",
-                "rds:DeleteDBSubnetGroup",
-                "rds:ModifyDBSubnetGroup",
-                "rds:DescribeDBSubnetGroups",
-                "rds:AddTagsToResource",
-                "rds:RemoveTagsFromResource",
-                "rds:ListTagsForResource"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "IAMOperations",
-            "Effect": "Allow",
-            "Action": [
-                "iam:CreateRole",
-                "iam:DeleteRole",
-                "iam:GetRole",
-                "iam:PassRole",
-                "iam:PutRolePolicy",
-                "iam:DeleteRolePolicy",
-                "iam:GetRolePolicy",
-                "iam:AttachRolePolicy",
-                "iam:DetachRolePolicy",
-                "iam:ListAttachedRolePolicies",
-                "iam:TagRole",
-                "iam:UntagRole",
-                "iam:DeleteRolePermissionsBoundary"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "DescribeOperations",
-            "Effect": "Allow",
-            "Action": [
-                "ec2:Describe*",
-                "s3:List*",
-                "s3:GetBucketLocation",
-                "iam:List*",
-                "rds:Describe*",
-                "eks:Describe*",
-                "eks:List*"
-            ],
-            "Resource": "*"
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "TerraformStateManagement",
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListBucket",
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:DeleteObject",
+        "dynamodb:GetItem",
+        "dynamodb:PutItem",
+        "dynamodb:DeleteItem",
+        "dynamodb:CreateTable",
+        "dynamodb:DescribeTable",
+        "dynamodb:DeleteTable"
+      ],
+      "Resource": [
+        "arn:aws:s3:::terraform-terraform-state-jitesh",
+        "arn:aws:s3:::terraform-state-jitesh/*",
+        "arn:aws:dynamodb:*:*:table/terraform-state-lock"
+      ]
+    },
+    {
+      "Sid": "VPCOperations",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:CreateVpc",
+        "ec2:DeleteVpc",
+        "ec2:ModifyVpcAttribute",
+        "ec2:CreateSubnet",
+        "ec2:DeleteSubnet",
+        "ec2:ModifySubnetAttribute",
+        "ec2:CreateInternetGateway",
+        "ec2:DeleteInternetGateway",
+        "ec2:AttachInternetGateway",
+        "ec2:DetachInternetGateway",
+        "ec2:CreateRouteTable",
+        "ec2:DeleteRouteTable",
+        "ec2:CreateRoute",
+        "ec2:DeleteRoute",
+        "ec2:AssociateRouteTable",
+        "ec2:DisassociateRouteTable",
+        "ec2:CreateNatGateway",
+        "ec2:DeleteNatGateway",
+        "ec2:AllocateAddress",
+        "ec2:ReleaseAddress",
+        "ec2:AssociateAddress",
+        "ec2:DisassociateAddress",
+        "ec2:CreateSecurityGroup",
+        "ec2:DeleteSecurityGroup",
+        "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:AuthorizeSecurityGroupEgress",
+        "ec2:RevokeSecurityGroupIngress",
+        "ec2:RevokeSecurityGroupEgress",
+        "ec2:CreateTags",
+        "ec2:DeleteTags"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "EC2Operations",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:RunInstances",
+        "ec2:TerminateInstances",
+        "ec2:StartInstances",
+        "ec2:StopInstances",
+        "ec2:DescribeInstances",
+        "ec2:DescribeInstanceStatus",
+        "ec2:DescribeInstanceTypes",
+        "ec2:DescribeImages",
+        "ec2:DescribeKeyPairs",
+        "ec2:ImportKeyPair",
+        "ec2:DeleteKeyPair",
+        "ec2:CreateTags",
+        "ec2:DeleteTags"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "EKSOperations",
+      "Effect": "Allow",
+      "Action": [
+        "eks:CreateCluster",
+        "eks:DeleteCluster",
+        "eks:DescribeCluster",
+        "eks:ListClusters",
+        "eks:UpdateClusterConfig",
+        "eks:UpdateClusterVersion",
+        "eks:CreateNodegroup",
+        "eks:DeleteNodegroup",
+        "eks:DescribeNodegroup",
+        "eks:ListNodegroups",
+        "eks:UpdateNodegroupConfig",
+        "eks:UpdateNodegroupVersion",
+        "eks:TagResource",
+        "eks:GetCluster"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "S3Operations",
+      "Effect": "Allow",
+      "Action": [
+        "s3:CreateBucket",
+        "s3:DeleteBucket",
+        "s3:PutBucketTagging",
+        "s3:PutBucketVersioning",
+        "s3:PutEncryptionConfiguration",
+        "s3:PutBucketPublicAccessBlock",
+        "s3:PutLifecycleConfiguration",
+        "s3:GetBucketPolicy",
+        "s3:PutBucketPolicy",
+        "s3:DeleteBucketPolicy"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "RDSOperations",
+      "Effect": "Allow",
+      "Action": [
+        "rds:CreateDBInstance",
+        "rds:DeleteDBInstance",
+        "rds:ModifyDBInstance",
+        "rds:DescribeDBInstances",
+        "rds:CreateDBSubnetGroup",
+        "rds:DeleteDBSubnetGroup",
+        "rds:ModifyDBSubnetGroup",
+        "rds:DescribeDBSubnetGroups",
+        "rds:AddTagsToResource",
+        "rds:RemoveTagsFromResource",
+        "rds:ListTagsForResource"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "IAMOperationsWithLimitedPassRole",
+      "Effect": "Allow",
+      "Action": [
+        "iam:CreateRole",
+        "iam:DeleteRole",
+        "iam:GetRole",
+        "iam:PutRolePolicy",
+        "iam:DeleteRolePolicy",
+        "iam:GetRolePolicy",
+        "iam:AttachRolePolicy",
+        "iam:DetachRolePolicy",
+        "iam:ListAttachedRolePolicies",
+        "iam:TagRole",
+        "iam:UntagRole",
+        "iam:DeleteRolePermissionsBoundary"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "LimitedPassRole",
+      "Effect": "Allow",
+      "Action": "iam:PassRole",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "iam:PassedToService": [
+            "eks.amazonaws.com",
+            "ec2.amazonaws.com"
+          ]
         }
-    ]
+      }
+    },
+    {
+      "Sid": "EC2EKSInteraction",
+      "Effect": "Allow",
+      "Action": [
+        "eks:DescribeCluster",
+        "eks:ListClusters",
+        "eks:DescribeNodegroup",
+        "eks:ListNodegroups",
+        "sts:AssumeRole",
+        "sts:GetCallerIdentity"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "DescribeOperations",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:Describe*",
+        "s3:List*",
+        "s3:GetBucketLocation",
+        "iam:List*",
+        "rds:Describe*",
+        "eks:Describe*",
+        "eks:List*"
+      ],
+      "Resource": "*"
+    }
+  ]
 }
